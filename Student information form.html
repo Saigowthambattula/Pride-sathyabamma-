@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>On Road Vehicle Breakdown Assistance (ORVBA)</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        h1, h2 { color: #333; }
+        .container { margin-bottom: 30px; }
+        .mechanic { border: 1px solid #007BFF; padding: 10px; border-radius: 5px; margin: 10px 0; }
+        input, textarea, button { margin: 5px 0; padding: 10px; width: calc(100% • 22px); }
+    </style>
+</head>
+<body>
+    <h1>On Road Vehicle Breakdown Assistance (ORVBA)</h1>
+
+    <div class="container">
+        <h2>User Registration</h2>
+        <input type="text" id="username" placeholder="Enter your name" required>
+        <input type="text" id="location" placeholder="Enter your location" required>
+        <button id="register-button">Register</button>
+    </div>
+
+    <div class="container">
+        <h2>Available Mechanics</h2>
+        <div id="mechanic-list">
+            <div class="mechanic">
+                <h3>Mechanic A</h3>
+                <p>Location: City Center</p>
+                <button onclick="requestAssistance('Mechanic A')">Request Assistance</button>
+            </div>
+            <div class="mechanic">
+                <h3>Mechanic B</h3>
+                <p>Location: East Side</p>
+                <button onclick="requestAssistance('Mechanic B')">Request Assistance</button>
+            </div>
+            <div class="mechanic">
+                <h3>Mechanic C</h3>
+                <p>Location: West Side</p>
+                <button onclick="requestAssistance('Mechanic C')">Request Assistance</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>Feedback</h2>
+        <textarea id="feedback" placeholder="Leave your feedback here..." rows="4"></textarea>
+        <button id="submit-feedback-button">Submit Feedback</button>
+    </div>
+
+    <script>
+        document.getElementById('register-button').onclick = function() {
+            const username = document.getElementById('username').value;
+            const location = document.getElementById('location').value;
+            if (username && location) {
+                alert(`Registered successfully!\nName: ${username}\nLocation: ${location}`);
+                document.getElementById('username').value = '';
+                document.getElementById('location').value = '';
+            } else {
+                alert('Please fill in all fields.');
+            }
+        };
+
+        window.requestAssistance = function(mechanicName) {
+            alert(`Assistance requested from ${mechanicName}.`);
+        };
+
+        document.getElementById('submit-feedback-button').onclick = function() {
+            const feedback = document.getElementById('feedback').value;
+            if (feedback) {
+                alert('Feedback submitted successfully!');
+                document.getElementById('feedback').value = '';
+            } else {
+                alert('Please enter your feedback.');
+            }
+        };
+    </script>
+</body>
+</html>
